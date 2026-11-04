@@ -157,6 +157,29 @@ dsh-notes/
 
 `action` = `list` / `get` / `create` / `update` / `delete` / `setStatus` / `linkSession`
 
+## 自检
+
+```bash
+node scripts/check.mjs
+```
+
+覆盖 10 项检查：
+
+| 检查 | 内容 |
+|---|---|
+| JS 语法 | 全部 `lib/` 与 `scripts/` 下的 `.js`/`.mjs` |
+| JSON 可解析 | 所有 `.json` |
+| locale 元数据 | 每个语言都有 `meta.title` / `meta.description` |
+| `cordis.patch.yml` | insert 段、id、name 齐全 |
+| `package.json` 自洽 | `dsh.bundle.patch` 与 `exports`/`files` 指向的文件真实存在 |
+| 图标有效 | 是合法 SVG 且不超过 256 KiB |
+| 无硬编码密钥 | 扫描飞书 AppID、企微 CorpID、各类 token、疑似 secret |
+| Host 可加载 | 能 `import` 且导出 `apply` |
+| Client 可加载 | 在模拟 loader 下 `factory` + `apply` 不报错 |
+| 槽位一致 | 注册了 `sidebar.panellist` + `main`，且 id 与 key 相同 |
+
+GitHub Actions 在每次 push / PR 时自动运行（Ubuntu + Windows × Node 20/22）。
+
 ## License
 
 MIT
