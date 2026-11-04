@@ -1,0 +1,49 @@
+{
+  "name": "dsh-notes",
+  "version": "1.1.0",
+  "private": true,
+  "description": "便签：记录需求、维护需求基本信息与分类，可与会话串起来，并支持截图识别与飞书/企业微信表格导入。",
+  "type": "module",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "notes",
+    "便签",
+    "requirements",
+    "飞书",
+    "feishu",
+    "bitable",
+    "企业微信",
+    "wecom"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

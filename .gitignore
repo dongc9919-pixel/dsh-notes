@@ -1,0 +1,20 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.log
+
+# 本地私有数据（绝不要提交）
+dsh-notes-plugin.zip
+*.zip
+.DS_Store
+Thumbs.db
+
+# 本地配置 / 凭证
+.credentials*
+*.secret
+*.env
+.env*
+
+# 编辑器
+.vscode/
+.idea/
